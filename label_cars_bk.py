@@ -91,8 +91,6 @@ window = Tk()
 carImgs = CarImage()
 carImgs.load_csv('book1.csv')
 
-cur_idx = 0
-
 #display the 1st image
 item = carImgs.get_image(0)
 cv_img = cv.cvtColor(cv.imread('images//' + item[0]), cv.COLOR_BGR2RGB)
@@ -104,19 +102,10 @@ photo = PIL.ImageTk.PhotoImage(image=PIL.Image.fromarray(cv_img))
 canvas.create_image(0, 0, image=photo, anchor=NW)
 
 def helloCallBack():
-	global cur_idx 
-	cur_idx += 1
-	print(cur_idx)
-	print(carImgs.num_images())
-	item = carImgs.get_image(cur_idx)
-
-	#fp = open("images/" + item[0])
-	pil_image = PIL.Image.open('images/'+item[0])
-	#pil_image = PIL.Image.open('images//'+item[0])
-	tkimg = PIL.ImageTk.PhotoImage(pil_image)
-  	#  cv_img = cv.cvtColor(cv.imread('images//' + item[0]), cv.COLOR_BGR2RGB)
-  	#  photo = PIL.ImageTk.PhotoImage(image=PIL.Image.fromarray(cv_img))
-	canvas.create_image(0, 0, image=tkimg, anchor=NW)
+    item = carImgs.get_image(1)
+    cv_img = cv.cvtColor(cv.imread('images//' + item[0]), cv.COLOR_BGR2RGB)
+    photo = PIL.ImageTk.PhotoImage(image=PIL.Image.fromarray(cv_img))
+    canvas.create_image(0, 0, image=photo, anchor=NW)
 
 #put  button, text
 catg = [ 'car', 'bus', 'truck']
