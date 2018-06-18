@@ -113,7 +113,7 @@ class VehicleLabel:
                 rect = Rect(i, l_objs[i])
                 rect.draw_me(img)
                 cv.imshow("image", img)
-                cv.waitKey(0)
+            cv.waitKey(0)
 
         cv.destroyAllWindows()
 
