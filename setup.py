@@ -108,13 +108,13 @@ ext_modules = [
     Extension(
         "utils.cython_bbox",
         ["utils/bbox.pyx"],
-        extra_compile_args={'gcc': ["-Wno-cpp", "-Wno-unused-function"]},
+        extra_compile_args={'gcc': ["-Wno-cpp"]},
         include_dirs = [numpy_include]
     ),
     Extension(
         "nms.cpu_nms",
         ["nms/cpu_nms.pyx"],
-        extra_compile_args={'gcc': ["-Wno-cpp", "-Wno-unused-function"]},
+        extra_compile_args={'gcc': ["-Wno-cpp"]},
         include_dirs = [numpy_include]
     ),
     Extension('nms.gpu_nms',
@@ -126,8 +126,7 @@ ext_modules = [
         # this syntax is specific to this build system
         # we're only going to use certain compiler args with nvcc and not with gcc
         # the implementation of this trick is in customize_compiler() below
-        extra_compile_args={'gcc': ["-Wno-unused-function"],
-                            'nvcc': ['-arch=sm_30',
+        extra_compile_args={'nvcc': ['-arch=sm_30',
                                      '--ptxas-options=-v',
                                      '-c',
                                      '--libdevice-directory=/usr/local/cuda-8.0/nvvm/libdevice',
