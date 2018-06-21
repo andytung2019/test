@@ -108,13 +108,13 @@ ext_modules = [
     Extension(
         "utils.cython_bbox",
         ["utils/bbox.pyx"],
-        extra_compile_args={'gcc': ["-Wno-cpp"]},
+        extra_compile_args={'gcc': [""]},
         include_dirs = [numpy_include]
     ),
     Extension(
         "nms.cpu_nms",
         ["nms/cpu_nms.pyx"],
-        extra_compile_args={'gcc': ["-Wno-cpp"]},
+        extra_compile_args={'gcc': [""]},
         include_dirs = [numpy_include]
     ),
     Extension('nms.gpu_nms',
