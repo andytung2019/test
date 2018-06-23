@@ -1,3 +1,4 @@
 import tensorflow as tf
-tf.test.gpu_device_name()
+
+print (tf.test.gpu_device_name())
 
